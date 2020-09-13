@@ -1,0 +1,111 @@
+﻿
+@using Community_Appeal_Web_Application.Models
+
+
+<table border="1" cellspacing="0" cellpadding="0" width="988">
+
+    <tbody class="kisi">
+        <tr>
+            <td width="54" valign="top">
+                <p align="center">
+                    <strong>S. No</strong>
+                </p>
+            </td>
+            <td width="164">
+                <p align="center">
+                    <strong>Adı Soyadı</strong>
+                </p>
+            </td>
+            <td width="158">
+                <p align="center">
+                    <strong>Fak/Yüksekokul/MYO</strong>
+                </p>
+            </td>
+            <td width="117">
+                <p align="center">
+                    <strong>TC Kimlik No</strong>
+                </p>
+            </td>
+            <td width="119" valign="top">
+                <p align="center">
+                    <strong>Öğrenci No</strong>
+                </p>
+            </td>
+            <td width="134" valign="top">
+                <p align="center">
+                    <strong>Cep Tel No</strong>
+                </p>
+            </td>
+            <td width="143">
+                <p align="center">
+                    <strong>e-Posta</strong>
+                </p>
+            </td>
+            <td width="99">
+                <p align="center">
+                    <strong>İmza</strong>
+                </p>
+            </td>
+            <td width="99">
+                <p align="center">
+                    <strong>İşlemler</strong>
+                </p>
+            </td>
+        </tr>
+        @{
+            int counter = 1;
+            foreach (OgrenciListesi item in ViewBag.ol)
+            {
+
+                <tr id="@item.ID">
+                    <td width="54" valign="top">
+                        <p>
+                            @counter
+                        </p>
+                    </td>
+                    <td width="164" valign="top">@item.adi @item.soyadi</td>
+                    <td width="158" valign="top">@item.fak</td>
+                    <td width="117" valign="top">@item.tc</td>
+                    <td width="119" valign="top">@item.ogrNo</td>
+                    <td width="134" valign="top">@item.tel</td>
+                    <td width="143" valign="top">@item.mail</td>
+                    <td width="99" valign="top"></td>
+                    <td class="sil" style="text-align:center;" width="99" valign="top"><a class="btn btn-danger btn-xs itemDelete" data-id="@item.ID"> <i class="icon-trash"> Sil</i></a></td>
+                </tr>
+                counter = counter + 1;
+            }
+        }
+
+
+    </tbody>
+</table>
+
+
+<script src="/Content/js/jquery.js"></script>
+<script src="/Content/js/jquery-1.8.3.min.js"></script>
+
+<script>
+
+
+    $('.itemDelete').click(function () {
+        var id = $(this).attr("data-id");
+        $.ajax({
+            url: '/Home/OgrenciListesiSil/' + id,
+            type: 'POST',
+            success: function (rs) {
+                if (rs === 3) {
+                    $('#' + id).remove();
+                }
+                else if (rs === 2) {
+                    alert('Kendinizi Üye Listesinden Silemezsiniz.');
+                }
+                else {
+                    alert('Silme işlemi gerçekleşirken bir hata oluştu.');
+                }
+            },
+            error: function (rs) {
+                alert('Bir hata oluştu');
+            }
+        });
+    });
+</script>

@@ -1,0 +1,112 @@
+﻿
+@{
+    Layout = null;
+}
+
+@using Community_Appeal_Web_Application.Models
+
+@model Guncelle
+
+<style>
+    body {
+        margin: 50px;
+        text-align: justify;
+        text-rendering: geometricPrecision;
+    }
+</style>
+
+<div class="panel-body">
+    <table style="border-collapse: collapse; border: none;margin:0px auto;" width="90%">
+        <tbody>
+            <tr style="height: 23.4pt;">
+                <td style="width: 76.3pt; border: solid windowtext 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt; height: 23.4pt; text-align:center" rowspan="5" width="102">
+                    <img src="@Server.MapPath("~/Content/img/duLogo.png")" width="80px" />
+
+                </td>
+                <td style="width: 219.7pt; border: solid windowtext 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 23.4pt;" rowspan="5" width="293">
+                    <p style="margin-bottom: .0001pt; text-align: center; line-height: normal;"><strong><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';">TC.</span></strong></p>
+                    <p style="margin-bottom: .0001pt; text-align: center; line-height: normal;"><strong><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';">D&Uuml;ZCE &Uuml;NİVERSİTESİ</span></strong></p>
+                    <p style="margin-bottom: .0001pt; text-align: center; line-height: normal;"><strong><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';">SAĞLIK K&Uuml;LT&Uuml;R VE SPOR DAİRE BAŞKANLIĞI</span></strong></p>
+                    <p style="margin-bottom: .0001pt; text-align: center; line-height: normal;"><strong><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';">&nbsp;</span></strong></p>
+                    <p style="margin-bottom: .0001pt; line-height: normal;"><strong><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';">&nbsp;</span></strong></p>
+                    <p style="margin-bottom: .0001pt; text-align: center; line-height: normal;"><strong><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';">&Ouml;ğrenci Toplulukları G&uuml;ncelleme </span></strong></p>
+                    <p style="margin-bottom: .0001pt; text-align: center; line-height: normal;"><strong><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';">Talep Formu</span></strong></p>
+                </td>
+                <td style="width: 3.0cm; border: solid windowtext 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 23.4pt;" width="113">
+                    <p style="margin-bottom: .0001pt; line-height: normal;"><strong><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';">Dok&uuml;man Kodu</span></strong></p>
+                </td>
+                <td style="width: 79.55pt; border: solid windowtext 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 23.4pt;" width="106">
+                    <p style="margin-bottom: .0001pt; line-height: normal;"><strong><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';">&nbsp;</span></strong></p>
+                </td>
+            </tr>
+            <tr style="height: 23.4pt;">
+                <td style="width: 3.0cm; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt; height: 23.4pt;" width="113">
+                    <p style="margin-bottom: .0001pt; line-height: normal;"><strong><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';">Yayın Tarihi</span></strong></p>
+                </td>
+                <td style="width: 79.55pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt; height: 23.4pt;" width="106">
+                    <p style="margin-bottom: .0001pt; line-height: normal;"><strong><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';">&nbsp;</span></strong></p>
+                </td>
+            </tr>
+            <tr style="height: 23.4pt;">
+                <td style="width: 3.0cm; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt; height: 23.4pt;" width="113">
+                    <p style="margin-bottom: .0001pt; line-height: normal;"><strong><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';">Revizyon Tarihi</span></strong></p>
+                </td>
+                <td style="width: 79.55pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt; height: 23.4pt;" width="106">
+                    <p style="margin-bottom: .0001pt; line-height: normal;"><strong><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';">&nbsp;</span></strong></p>
+                </td>
+            </tr>
+            <tr style="height: 23.4pt;">
+                <td style="width: 3.0cm; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt; height: 23.4pt;" width="113">
+                    <p style="margin-bottom: .0001pt; line-height: normal;"><strong><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';">Revizyon No</span></strong></p>
+                </td>
+                <td style="width: 79.55pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt; height: 23.4pt;" width="106">
+                    <p style="margin-bottom: .0001pt; line-height: normal;"><strong><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';">&nbsp;</span></strong></p>
+                </td>
+            </tr>
+            <tr style="height: 23.4pt;">
+                <td style="width: 3.0cm; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt; height: 23.4pt;" width="113">
+                    <p style="margin-bottom: .0001pt; line-height: normal;"><strong><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';">Sayfa No</span></strong></p>
+                </td>
+                <td style="width: 79.55pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt; height: 23.4pt;" width="106">
+                    <p style="margin-bottom: .0001pt; line-height: normal;"><strong><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';">&nbsp;</span></strong></p>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <br />
+    <table style="border-collapse: collapse; border: none;margin:0px auto;" width="90%">
+        <tbody>
+            <tr style="height: 23.4pt;">
+                <td style="width: 219.7pt; border: solid windowtext 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt; height: 23.4pt; margin-top:10px;" rowspan="5" width="100%">
+                    <p><span style="font-size: 12.0pt; line-height: 115%; font-family: 'Times New Roman','serif';">&nbsp;</span></p>
+                    <p style="border: none; padding: 0cm;"><span style="font-size: 12.0pt; line-height: 115%; font-family: 'Times New Roman','serif';">&nbsp;</span></p>
+                    <p style="text-align: center; border: none; padding: 0cm;"><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';">T.C</span></p>
+                    <p style="text-align: center; border: none; padding: 0cm;"><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';">D&uuml;zce &Uuml;niversitesi</span></p>
+                    <p style="text-align: center; border: none; padding: 0cm;"><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';">Sağlık K&uuml;lt&uuml;r ve Spor Daire Başkanlığına</span></p>
+                    <p style="text-align: center; border: none; padding: 0cm;"><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';">&nbsp;</span></p>
+                    <p style="text-align: center; border: none; padding: 0cm;"><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';">&nbsp;</span></p>
+                    <p style="text-align: center; border: none; padding: 0cm;"><span style="font-size: 12.0pt; font-family: 'Times New Roman','serif';">&nbsp;</span></p>
+                    <p style="text-indent: 35.4pt; border: none; padding: 0cm;"><span style="font-size: 12.0pt; line-height: 115%; font-family: 'Times New Roman','serif';">D&uuml;zce &Uuml;niversitesi b&uuml;nyesinde faaliyet g&ouml;stermekte olan @Model.toplulukAdi Topluluğu&rsquo;nu g&uuml;ncellemek istiyoruz.</span></p>
+                    <p style="text-indent: 35.4pt; border: none; padding: 0cm;"><span style="font-size: 12.0pt; line-height: 115%; font-family: 'Times New Roman','serif';">Gereğinin yapılmasını arz ederim. @DateTime.Now.Day /  @DateTime.Now.Month /  @DateTime.Now.Year </span></p>
+                    <p style="border: none; padding: 0cm;"><span style="font-size: 12.0pt; line-height: 115%; font-family: 'Times New Roman','serif';">&nbsp;</span></p>
+                    <p style="border: none; padding: 0cm;"><span style="font-size: 12.0pt; line-height: 115%; font-family: 'Times New Roman','serif';">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; @Model.toplulukAdi Topluluğu Başkanı &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; @Model.toplulukAdi Topluluğu Danışmanı</span></p>
+                    <p style="border: none; padding: 0cm;"><span style="font-size: 12.0pt; line-height: 115%; font-family: 'Times New Roman','serif';">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Ad Soyad/ İmza&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Ad Soyad/ İmza</span></p>
+                    <p style="border: none; padding: 0cm;"><span style="font-size: 12.0pt; line-height: 115%; font-family: 'Times New Roman','serif';">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; @Model.baskanAdi @Model.baskanSoyadi&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; @Model.GDanisman.Where(x => x.aktif == true).FirstOrDefault().adi @Model.GDanisman.Where(x => x.aktif == true).FirstOrDefault().soyadi</span></p>
+                    <p style="border: none; padding: 0cm;"><span style="font-size: 12.0pt; line-height: 115%; font-family: 'Times New Roman','serif';">&nbsp;</span></p>
+                    <p style="border: none; padding: 0cm;"><span style="font-size: 12.0pt; line-height: 115%; font-family: 'Times New Roman','serif';">&nbsp;</span></p>
+                    <p style="border: none; padding: 0cm;"><span style="font-size: 12.0pt; line-height: 115%; font-family: 'Times New Roman','serif';">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;EKLER :</span></p>
+                    <p style="border: none; padding: 0cm;"><span style="font-size: 12.0pt; line-height: 115%; font-family: 'Times New Roman','serif';">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&Ouml;ğrenci Toplulukları Y&ouml;nergesi&rsquo;nin 12.maddesinde belirtilen belgeler.</span></p>
+                    <p style="border: none; padding: 0cm;"><span style="font-size: 12.0pt; line-height: 115%; font-family: 'Times New Roman','serif';">&nbsp;</span></p>
+                    <p style="border: none; padding: 0cm;"><span style="font-size: 12.0pt; line-height: 115%; font-family: 'Times New Roman','serif';">&nbsp;</span></p>
+                    <p style="border: none; padding: 0cm;"><span style="font-size: 12.0pt; line-height: 115%; font-family: 'Times New Roman','serif';">&nbsp;</span></p>
+                    <p style="border: none; padding: 0cm;"><span style="font-size: 12.0pt; line-height: 115%; font-family: 'Times New Roman','serif';">&nbsp;</span></p>
+                    <p style="border: none; padding: 0cm;">&nbsp;</p>
+                    <p>&nbsp;</p>
+                </td>
+
+            </tr>
+
+        </tbody>
+    </table>
+
+</div>

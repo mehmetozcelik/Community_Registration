@@ -1,0 +1,57 @@
+﻿
+@{
+    Layout = null;
+}
+
+
+
+@using Community_Appeal_Web_Application.Models
+@model Basvuru
+
+<div class="panel-body" style="padding: 30px">
+    <p style="text-align: center; line-height: normal; tab-stops: 59.25pt;"><span style="font-size: 12.0pt; font-family: 'Times New Roman',serif;">D&Uuml;ZCE &Uuml;NİVERSİTESİ</span></p>
+    <p style="text-align: center; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Times New Roman',serif;">SAĞLIK K&Uuml;LT&Uuml;R VE SPOR DAİRE BAŞKANLIĞI&rsquo;NA</span></p>
+    <p><span style="font-size: 12.0pt; line-height: 115%; font-family: 'Times New Roman',serif;">&nbsp;</span></p>
+    <p style="text-align: justify;"><span style="font-size: 12.0pt; line-height: 115%; font-family: 'Times New Roman',serif;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>@Model.akademikYıl</b> Akademik yılında kuruluşu onaylanan D&uuml;zce &Uuml;niversitesi <b>@Model.toplulukAdi</b> Topluluğu&rsquo;nun faaliyete başlayabilmesi i&ccedil;in, Genel Kurul Tutanağı (Ek-7) ile D&uuml;zce &Uuml;niversitesi &Ouml;ğrenci Toplulukları Y&ouml;nergesi&rsquo;nin 6.Maddesine istinaden iki akademik danışman adayının bilgileri aşağıda sunulmuştur.</span></p>
+    <p style="text-align: justify; text-indent: 35.4pt;"><span style="font-size: 12.0pt; line-height: 115%; font-family: 'Times New Roman',serif;">Gereğini bilgilerinize arz ederim.</span></p>
+    <p style="text-align: justify;"><span style="font-size: 12.0pt; line-height: 115%; font-family: 'Times New Roman',serif;">&nbsp;</span></p>
+
+    <table class="table" style="width: 70%; margin: auto; border: solid; border: solid; border-color:lightgrey;border-width: 2px">
+        <thead>
+            <tr>
+                <th>Sıra No</th>
+                <th>Danışman Ünvanı</th>
+                <th>Danışman Adı</th>
+                <th>Danışman Soyadı</th>
+                <th>Danışman Okulu</th>
+            </tr>
+        </thead>
+        <tbody class="kisi">
+            @{
+                int i = 0;
+                foreach (Danisman item in ViewBag.DL)
+                {
+                    i++;
+                    <tr id="@item.ID">
+                        <td>@i</td>
+                        <td>@item.unvan</td>
+                        <td>@item.adi</td>
+                        <td>@item.soyadi</td>
+                        <td>@item.akademikBirim</td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+
+    <br /><br /><br />
+    <p style="text-indent: 35.4pt;"><span style="font-size: 12.0pt; line-height: 115%; font-family: 'Times New Roman',serif;">&nbsp;</span></p>
+    <p style="text-indent: 35.4pt;"><span style="font-size: 12.0pt; line-height: 115%; font-family: 'Times New Roman',serif;">&nbsp;</span></p>
+    <div style="float: right;text-align: center">
+        <p style="text-indent: 35.4pt; tab-stops: 313.5pt;"><span style="font-size: 12.0pt; line-height: 115%; font-family: 'Times New Roman',serif;"><b>@DateTime.Now.Date.ToShortDateString()</b> </span></p>
+        <p style="margin-bottom: 6.0pt; text-indent: 35.4pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Times New Roman',serif;">Düzce Üniversitesi <b>@Model.toplulukAdi</b> Topluluğu</span></p>
+        <p style="margin-bottom: 6.0pt; text-indent: 35.4pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Times New Roman',serif;">Topluluk Başkanı - İmza </span></p>
+        <p style="margin-bottom: 6.0pt; text-indent: 35.4pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Times New Roman',serif;"><b>@Model.baskanAdi @Model.baskanSoyadi</b></span></p>
+    </div>
+    <br /><br /><br />
+</div>

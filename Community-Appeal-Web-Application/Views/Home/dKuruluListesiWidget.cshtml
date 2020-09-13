@@ -1,0 +1,25 @@
+﻿<table class="table" style="width: 70%; margin: auto; border: solid; border: solid; border-color:lightgrey;border-width: 2px">
+    <thead>
+    <tr>
+        <th>Sıra No</th>
+        <th>Görev Adı</th>
+        <th>Adı Soyadı</th>
+        <th>Sil</th>
+    </tr>
+    </thead>
+    <tbody class="kisi">
+    @{
+        int c = 0;
+        foreach (var item in ViewBag.dk)
+        {
+            c++;
+            <tr>
+                <td>@c</td>
+                <td>@item.unvan</td>
+                <td>@item.adi @item.soyadi</td>
+                <td class="sil"><a href="/Home/dUyeListesiSil/@item.ID" class="btn btn-danger btn-xs itemDelete"><i class="icon-trash"> Sil</i></a></td>
+            </tr>
+        }
+    }
+    </tbody>
+</table>

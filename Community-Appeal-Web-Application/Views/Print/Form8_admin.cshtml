@@ -1,0 +1,255 @@
+﻿
+@{
+    Layout = null;
+}
+
+<style>
+    body {
+        margin: 50px;
+        text-align: justify;
+        text-rendering: geometricPrecision;
+    }
+</style>
+
+@{
+    int gunInt = 0;
+    gunInt = (int)Model.kurulusTarihi.Value.Day;
+    string ay = Model.kurulusTarihi.Value.Month.ToString();
+    string yil = Model.kurulusTarihi.Value.Year.ToString();
+    string gun;
+    if (gunInt <= 9)
+    {
+        gun = "0" + Model.kurulusTarihi.Value.Day.ToString();
+    }
+    else
+    {
+        gun = Model.kurulusTarihi.Value.Day.ToString();
+    }
+
+    string kurulusTarihi = yil + "-" + ay + "-" + gun;
+}
+
+@{
+    int gunInt1 = 0;
+    gunInt = (int)Model.toplantiTarihi.Value.Day;
+    string ay1 = Model.toplantiTarihi.Value.Month.ToString();
+    string yil1 = Model.toplantiTarihi.Value.Year.ToString();
+    string gun1;
+    if (gunInt1 <= 9)
+    {
+        gun1 = "0" + Model.toplantiTarihi.Value.Day.ToString();
+    }
+    else
+    {
+        gun1 = Model.toplantiTarihi.Value.Day.ToString();
+    }
+
+    string toplantiTarihi = yil1 + "-" + ay1 + "-" + gun1;
+}
+
+<head>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/Content/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/Content/css/bootstrap-reset.css" rel="stylesheet">
+
+</head>
+
+<style>
+    table, th, td {
+        border: 1px solid black;
+        color: black;
+        font-size: 10.0pt;
+        font-family: 'Times New Roman', serif;
+    }
+
+    #th-left {
+        text-align: left;
+        padding-left: 15px;
+    }
+
+    #table2, tr, th {
+        text-align: left;
+        padding-left: 15px;
+    }
+</style>
+
+@using Community_Appeal_Web_Application.Models
+@model Basvuru
+
+<div class="panel-body">
+
+    <table style="width: 100%">
+        <tr>
+            <th rowspan="8" style="padding: 10px; width: 13%"><img src="/duzce.png" width="82%" /></th>
+            <th rowspan="5" style="text-align: center">
+                <b>
+                    TC.<br />
+                    DÜZCE ÜNİVERSİTESİ<br />
+                    SAĞLIK KÜLTÜR VE SPOR DAİRE BAŞKANLIĞI<br />
+                    <br />
+                    Genel Kurul Sonuç Bildirimi Formu
+                </b>
+            </th>
+            <th style="width: 15%" id="th-left">
+                <b>Doküman Kodu</b>
+            </th>
+            <th style="width: 15%" id="th-left">
+
+            </th>
+        </tr>
+        <tr>
+            <th id="th-left">
+                <b>Yayın Tarihi</b>
+            </th>
+            <th id="th-left">
+
+            </th>
+        </tr>
+        <tr>
+            <th id="th-left">
+                <b>Revizyon Tarihi</b>
+            </th>
+            <th id="th-left">
+
+            </th>
+        </tr>
+        <tr>
+            <th id="th-left">
+                <b>Revizyon No</b>
+            </th>
+            <th id="th-left">
+
+            </th>
+        </tr>
+        <tr>
+            <th id="th-left">
+                <b>Sayfa No</b>
+            </th>
+            <th id="th-left">
+
+            </th>
+        </tr>
+    </table>
+
+    <br />
+
+    <table style="width: 100%; height: 90px;" id="table2">
+        <tr>
+            <th style="width: 15%">Topluluk Adı</th>
+            <th colspan="6">@Model.toplulukAdi</th>
+            <th style="width: 15%">Kuruluş Tarihi</th>
+            <th style="width: 15%">@kurulusTarihi</th>
+        </tr>
+        <tr>
+            <th>Toplantı Niteliği</th>
+            <th>Olağan</th>
+            @if (Model.toplantiNiteligi == true)
+            {
+                <th style="padding: 5px;width: 2.2%"><div style="background-color: black; width: 100%; height: 100%; border-radius: 50%;"></div></th> }
+            else
+            {
+                <th></th>}
+            <th>Olağanüstü</th>
+            @if (Model.toplantiNiteligi == false)
+            {
+                <th style="padding: 5px;width: 2.5%"><div style="background-color: black; width: 100%; height: 100%; border-radius: 50%;"></div></th> }
+            else
+            {
+                <th></th>}
+            <th>Toplantı Tarihi</th>
+            <th>@toplantiTarihi</th>
+            <th>Toplam Üye Sayısı</th>
+            <th>@Model.uyeSayisi</th>
+        </tr>
+        <tr>
+            <th>Tüzük Değişikliği</th>
+            <th>Evet</th>
+            @if (Model.tuzukDegisikligi == true)
+            {
+                <th style="padding: 5px"><div style="background-color: black; width: 100%; height: 100%; border-radius: 50%;"></div></th> }
+            else
+            {
+                <th></th>}
+            <th>Hayır</th>
+            @if (Model.tuzukDegisikligi == false)
+            {
+                <th style="padding: 5px"><div style="background-color: black; width: 100%; height: 100%; border-radius: 50%;"></div></th> }
+            else
+            {
+                <th></th>}
+            <th colspan="2">Genel Kurula Katılan Üye Sayısı</th>
+            <th colspan="2">@Model.gUyeSayisi</th>
+        </tr>
+    </table>
+
+    <br />
+
+    @foreach (var item in ViewBag.yonetimKurulu)
+    {
+        <table id="table2" style="width: 100%;height: 100px">
+            <tr>
+                <th rowspan="2" style="width: 35%">Adı Soyadı (@item.unvan) :<br /> @item.adi @item.soyadi</th>
+                <th colspan="2">T.C. Kimlik No : @item.tc</th>
+                <th rowspan="6" style="text-align: center;width: 20%">Resim</th>
+            </tr>
+            <tr>
+                <th colspan="2">Fakilte : @item.fakulte</th>
+            </tr>
+            <tr>
+                @if (item.bolum != null)
+                {
+                    <th>Y. Okul / Bölüm : @item.bolum</th>}
+                else
+                {
+                    <th>Y. Okul / Bölüm : </th>}
+
+                <th colspan="2">Öğrenci No : @item.ogrNo</th>
+            </tr>
+            <tr>
+                @if (item.adres != null)
+                {
+                    <th colspan="3">Adres : @item.adres</th>}
+                else
+                {
+                    <th colspan="3">Adres : </th>}
+
+            </tr>
+            <tr>
+                @if (item.evTel != null)
+                {
+                    <th>Ev Tel : @item.evTel</th>}
+                else
+                {
+                    <th>Ev Tel : </th>}
+
+                <th>GSM : @item.gsm</th>
+                <th rowspan="2" style="width: 20%">İmza : </th>
+            </tr>
+            <tr>
+                <th colspan="2">E-Mail : @item.eMail</th>
+            </tr>
+        </table><br />
+    }
+
+    <div style="float: left;color: black">
+        Topluluk Başkanı /İmza<br /><br />
+        <b>@Model.baskanAdi @Model.baskanSoyadi</b>
+    </div>
+
+    <div style="float: right;color: black">
+        Topluluk Danışmanı/İmza<br /><br />
+        <b>
+            @{
+                if (Model.Danisman.FirstOrDefault(x => x.aktif == true) != null)
+                {
+                    @Model.Danisman.FirstOrDefault(x => x.aktif == true).adi<span> </span> @Model.Danisman.FirstOrDefault(x => x.aktif == true).soyadi
+                }
+            }
+        </b>
+    </div>
+    <br /><br /><br /><br /><span></span>
+</div>
+
+
+

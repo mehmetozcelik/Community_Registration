@@ -1,0 +1,216 @@
+﻿
+@{
+    ViewBag.Title = "form5";
+    if (Session["Admin"] != null)
+    {
+        Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_LayoutPage.cshtml";
+    }
+}
+
+@using Community_Appeal_Web_Application.Models
+
+
+@model Basvuru
+
+@{
+    if (Model != null)
+    {
+        
+        <div class="row">
+            <div class="col-lg-12">
+                <section class="panel">
+                    <header class="panel-heading">
+                        Ek 5 - Topluluk Danışmanı Teklif Dilekçesi
+                    </header>
+                    <div class="panel-body">
+
+                        <form role="form" method="post" action="/Home/form5">
+                            @*<div class="form-group">
+            <label>Danışman Ünvanı</label>
+            <input id="unvan" name="unvan" type="text" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>Danışman Adı</label>
+            <input id="adi" name="adi" type="text" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>Danışman Soyadı</label>
+            <input id="soyadi" name="soyadi" type="text" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>Danışman Okulu</label>
+            <input id="akademikBirim" name="akademikBirim" type="text" class="form-control" >
+        </div>
+        <div class="form-group">
+            <label>Topluluk Başkanı</label>
+            <select onload="show_selected()" onchange="show_selected()" class="form-control" id="toplulukBaskani" name="ID" required>
+                <option value="default">Topluluk Başkanı Seçiniz</option>
+                @foreach (var item in ViewBag.ol)
+                {
+                    <option value="@item.ID">
+                        @item.adi @item.soyadi
+                    </option>
+                }
+            </select>
+        </div>*@
+                            <text>* Bu formdaki tüm veriler önceki formlarda girilmiştir. Bu Formu kontrol ettikten sonra Kaydet dedikten sonra 6.forma geçebilirsiniz.</text>
+                            @{
+                                if (Model.adimNo >= 6)
+                                {
+                                    <a href="form6" style="float:right;margin-left:5px;" class="btn btn-primary">Form 6</a>
+                                }
+                            }
+                            <button type="submit" id="button" style="margin-right:5px;float:right;" class="btn btn-info">Kaydet</button>
+
+                            @*<a id="ekle" type="submit" style="margin-right:5px;" class="btn btn-success"><i class="glyphicon-plus"></i> Ekle</a>*@
+
+
+                        </form>
+                    </div>
+                </section>
+            </div>
+
+
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <section class="panel">
+                    <header class="panel-heading">
+                        Ek 5 - Topluluk Danışmanı Teklif Dilekçesi
+                    </header>
+
+                    <div class="panel-body" style="padding: 30px">
+                        <p style="text-align: center; line-height: normal; tab-stops: 59.25pt;"><span style="font-size: 12.0pt; font-family: 'Times New Roman',serif;">D&Uuml;ZCE &Uuml;NİVERSİTESİ</span></p>
+                        <p style="text-align: center; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Times New Roman',serif;">SAĞLIK K&Uuml;LT&Uuml;R VE SPOR DAİRE BAŞKANLIĞI&rsquo;NA</span></p>
+                        <p><span style="font-size: 12.0pt; line-height: 115%; font-family: 'Times New Roman',serif;">&nbsp;</span></p>
+                        <p style="text-align: justify;"><span style="font-size: 12.0pt; line-height: 115%; font-family: 'Times New Roman',serif;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>@Model.akademikYıl</b> Akademik yılında kuruluşu onaylanan D&uuml;zce &Uuml;niversitesi <b>@Model.toplulukAdi</b> Topluluğu&rsquo;nun faaliyete başlayabilmesi i&ccedil;in, Genel Kurul Tutanağı (Ek-7) ile D&uuml;zce &Uuml;niversitesi &Ouml;ğrenci Toplulukları Y&ouml;nergesi&rsquo;nin 6.Maddesine istinaden iki akademik danışman adayının bilgileri aşağıda sunulmuştur.</span></p>
+                        <p style="text-align: justify; text-indent: 35.4pt;"><span style="font-size: 12.0pt; line-height: 115%; font-family: 'Times New Roman',serif;">Gereğini bilgilerinize arz ederim.</span></p>
+                        <p style="text-align: justify;"><span style="font-size: 12.0pt; line-height: 115%; font-family: 'Times New Roman',serif;">&nbsp;</span></p>
+
+                        <div class="append">
+                            @{
+                                Html.RenderAction("danismanListesiWidget");
+                            }
+                        </div>
+
+                        <br /><br /><br />
+                        <p style="text-indent: 35.4pt;"><span style="font-size: 12.0pt; line-height: 115%; font-family: 'Times New Roman',serif;">&nbsp;</span></p>
+                        <p style="text-indent: 35.4pt;"><span style="font-size: 12.0pt; line-height: 115%; font-family: 'Times New Roman',serif;">&nbsp;</span></p>
+                        <div style="float: right;text-align: center">
+                            <p style="text-indent: 35.4pt; tab-stops: 313.5pt;"><span style="font-size: 12.0pt; line-height: 115%; font-family: 'Times New Roman',serif;"><b>@DateTime.Now.Date.ToShortDateString()</b> </span></p>
+                            <p style="margin-bottom: 6.0pt; text-indent: 35.4pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Times New Roman',serif;">Düzce Üniversitesi <b>@Model.toplulukAdi</b> Topluluğu</span></p>
+                            <p style="margin-bottom: 6.0pt; text-indent: 35.4pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Times New Roman',serif;">Topluluk Başkanı</span></p>
+                            <p style="margin-bottom: 6.0pt; text-indent: 35.4pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Times New Roman',serif;">İmza</span></p><br /><br />
+                            @if (Model.baskanAdi == null && Model.baskanSoyadi == null)
+                            {
+                                <p style="margin-bottom: 6.0pt; text-indent: 35.4pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Times New Roman',serif;"><b>Topluluk Başkanı</b></span></p>
+                            }
+                            else
+                            {
+                                <p style="margin-bottom: 6.0pt; text-indent: 35.4pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Times New Roman',serif;">Topluluk Başkanı</span></p>
+                                <p style="margin-bottom: 6.0pt; text-indent: 35.4pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Times New Roman',serif;"><b>@Model.baskanAdi @Model.baskanSoyadi</b></span></p>
+                            }
+                        </div>
+                        <br /><br /><br />
+                    </div>
+
+                </section>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-danger" role="alert">
+            <strong><p style="font-size:18px;"> İlk önce 4. formu doldurmanız gerekmektedir.</p></strong>
+        </div>
+    }
+}
+
+<script src="/Content/js/jquery.js"></script>
+<script src="/Content/js/jquery-1.8.3.min.js"></script>
+<script>
+    function show_selected() {
+        "use strict";
+        var selector = document.getElementById('toplulukBaskani');
+        var valuea = selector[selector.selectedIndex].value;
+
+        if (valuea == 'default') {
+            $('#button').removeClass('btn btn-info');
+            $('#button').addClass('btn btn-info disabled');
+            document.getElementById('button').disabled = true;
+        }
+        else {
+            $('#button').removeClass('btn btn-info disabled');
+            $('#button').addClass('btn btn-info');
+            document.getElementById('button').disabled = false;
+        }
+        window.onload = show_selected();
+    };
+
+    $('#ekle').click(function () {
+        var value1 = $('#unvan').val();
+        var value2 = $('#adi').val();
+        var value3 = $('#soyadi').val();
+        var value4 = $('#akademikBirim').val();
+
+        if (value1 === "" || value2 === "" || value3 === "" || value4 === "") {
+            alert("Tüm alanlar doldurulmalıdır.");
+        }
+        else {
+            $.ajax({
+                type: 'POST',
+                contentType: 'application/json; charset=utf-8',
+                url: '/Home/danismanEkle',
+                data: "{'unvan':'" + value1 + "', 'adi':'" + value2 + "', 'soyadi':'" + value3 + "', 'akademikBirim':'" + value4 + "'}",
+                success: function (result) {
+                    if (result === true) {
+                        $.ajax({
+                            url: '/Home/danismanListesiWidget',
+                            type: 'GET',
+                            cache: false,
+                            success: function (data) {
+                                $('.append').html(data);
+                            }
+                        });
+                    }
+                    else {
+                        alert("En Fazla 2 Danışman Girebilirsiniz.");
+                    }
+                },
+                Error: function (result) {
+                    alert("Error");
+                }
+            });
+        }
+
+
+    });
+
+</script>
+
+<script>
+
+    $('.itemDelete').click(function () {
+        var id = $(this).attr("data-id");
+        $.ajax({
+            url: '/Home/danismanListesiSil/' + id,
+            type: 'POST',
+            success: function (rs) {
+                if (rs === 3) {
+                    $('#' + id).remove();
+                }
+                else {
+                    alert('Silme işlemi gerçekleşirken bir hata oluştu.');
+                }
+            },
+            error: function (rs) {
+                alert('Bir hata oluştu');
+            }
+        });
+    });
+</script>
+

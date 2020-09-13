@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewBag.Title = "Duzenle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@using Community_Appeal_Web_Application.Models
+
+@model Admin
+<div class="row">
+    <div class="col-lg-12">
+        <section class="panel">
+            <header class="panel-heading">
+                Şu anda @Model.adi @Model.soyadi isimli kullanıcıyı Düzenliyorsunuz...
+            </header>
+            <div class="panel-body">
+                <form role="form" method="post" action="/Admin/Duzenle">
+
+                    @Html.Hidden("ID", Model.ID)
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Adı</label>
+                        <input type="text" class="form-control" name="adi" required value="@Model.adi">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Soyadı</label>
+                        <input type="text" class="form-control" name="soyadi" required value="@Model.soyadi">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Mail Adresi</label>
+                        <input type="email" class="form-control" name="eMail" required value="@Model.eMail">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Şifre</label>
+                        <input type="password" class="form-control" name="sifre" required value="@Model.sifre">
+                    </div>
+                    <button style="float:right;margin-left:5px;" type="submit" class="btn btn-info">Kaydet</button>
+                    <a href="/Admin/Listesi" style="float:right;margin-left:5px;" class="btn btn-default">Vazgeç</a>
+                </form>
+            </div>
+        </section>
+    </div>
+
+</div>
+

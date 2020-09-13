@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <section class="panel">
+            <header class="panel-heading">
+                Düzce Üniversitesi Öğrenci Topluluğu Başvuru ve Güncelleme Sistemi
+            </header>
+            <div class="panel-body">
+                @if (TempData["Guncelle"] != null)
+                {
+                    <div class="alert alert-success alert-dismissable">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        <strong>@TempData["Guncelle"]</strong>
+                    </div>
+                }
+                @if (TempData["Basvuru"] != null)
+                {
+                    <div class="alert alert-success alert-dismissable">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        <strong>@TempData["Basvuru"]</strong>
+                    </div>
+                }
+                @if (TempData["Errorum"] != null)
+                {
+                    <div class="alert alert-danger alert-dismissable">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        <strong>@TempData["Errorum"]</strong>
+                    </div>
+                }
+            </div>
+        </section>
+    </div>
+
+</div>
+

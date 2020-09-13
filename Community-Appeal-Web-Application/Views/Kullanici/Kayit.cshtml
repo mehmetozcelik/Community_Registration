@@ -1,0 +1,70 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <link rel="shortcut icon" href="/Content/img/favicon.png">
+
+    <title>Düzce Üniversitesi</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/Content/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/Content/css/bootstrap-reset.css" rel="stylesheet">
+    <!--external css-->
+    <link href="/Content/assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <!-- Custom styles for this template -->
+    <link href="/Content/css/style.css" rel="stylesheet">
+    <link href="/Content/css/style-responsive.css" rel="stylesheet" />
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 tooltipss and media queries -->
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body class="login-body">
+
+    <div class="container">
+
+        <form class="form-signin" method="post" action="/Kullanici/Kayit">
+            <h2 class="form-signin-heading">Kayıt Ol</h2>
+            @if (ViewBag.Hata != null)
+            {
+                <div class="alert-danger" style="padding:5px; margin:5px;border-radius:5px;text-align:center;">
+                    <b>@ViewBag.Hata</b>
+                </div>
+            }
+            <div class="login-wrap">
+                <img src="/Content/img/duLogo.png" style=" width: 70px; margin-left: 35%;margin-bottom: 20px;"/>
+                <input name="adi" type="text" class="form-control" placeholder="Adı" autofocus required maxlength="100">
+                <input name="soyadi" type="text" class="form-control" placeholder="Soyadı" autofocus required maxlength="100">
+                <input style="margin-bottom:15px;font-size:12px;" name="ogrMail" type="email" class="form-control" placeholder="Öğrenci Mail" autofocus required maxlength="100">
+                <input name="tel" type="text" class="form-control" placeholder="Telefon Numarası (05**)" autofocus required title="En az 11 karakter girmelisiniz." pattern=".{11,}" maxlength="11">
+                <input name="fak" type="text" class="form-control" placeholder="Bağlı olduğunuz Fakülte" autofocus required maxlength="200">
+                <input onkeypress="return event.charCode >= 48 && event.charCode <= 57" name="ogrNo" type="text" class="form-control" placeholder="Öğrenci Numarası" autofocus required maxlength="100">
+                <input onkeypress="return event.charCode >= 48 && event.charCode <= 57" name="tc" type="text" class="form-control" placeholder="Öğrenci T.C. Kimlik Numarası" autofocus required title="En az 11 karakter girmelisiniz." pattern=".{11,}" maxlength="11">
+                <input name="sifre" type="password" class="form-control" placeholder="Şifre" required>
+                <button class="btn btn-danger btn-block" type="submit" style="color:white;">Kayıt Ol</button>
+                <a class="btn btn-success btn-block" style="color:white;" href="/Kullanici/Login">Giriş Yap</a>
+                <a href="/Kullanici/SifremiUnuttum" style="margin-left:30%;margin-top:10px;">Şifremi unuttum</a>
+            </div>
+
+
+        </form>
+
+    </div>
+
+    <!-- js placed at the end of the document so the pages load faster -->
+    <script src="/Content/js/jquery.js"></script>
+    <script src="/Content/js/bootstrap.min.js"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,57 @@
+﻿
+@{
+    ViewBag.Title = "basvuruTamamla";
+    if (Session["Admin"] != null)
+    {
+        Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    }
+}
+
+@using Community_Appeal_Web_Application.Models
+
+@model Basvuru
+
+@if (Model.adimNo != 9)
+{
+    <div class="alert alert-danger" role="alert">
+        <strong><p style="font-size:18px;"> Başvuruyu tamamlayabilmeniz için tüm formları doldurmanız gerekmektedir.</p></strong>
+    </div>
+}
+else
+{
+    <div class="row">
+
+        <div class="col-lg-12">
+            <section class="panel">
+                <header class="panel-heading">
+                    Başvuru Tamamla
+                </header>
+                <div class="panel-body">
+
+                    <p>Doldurduğunuz Formları aşığıdaki bağlantılardan temin edebilirsiniz. Formların çıktısını ilgili birime teslim edeniz.</p>
+                    <br />
+                    <a href="/Print/Form1" target="_blank" class="btn btn-primary">Form 1</a>
+
+                    <a href="/Print/Form2" target="_blank" class="btn btn-primary">Form 2</a>
+
+                    <a href="/Print/Form3" target="_blank" class="btn btn-primary">Form 3</a>
+
+                    <a href="/Print/Form4" target="_blank" class="btn btn-primary">Form 4</a>
+
+                    <a href="/Print/Form5" target="_blank" class="btn btn-primary">Form 5</a>
+
+                    <a href="/Print/Form6" target="_blank" class="btn btn-primary">Form 6</a>
+
+                    <a href="/Print/Form7" target="_blank" class="btn btn-primary">Form 7</a>
+                    
+                    <a href="/Print/Form8" target="_blank" class="btn btn-primary">Form 7.1</a>
+                    <br />
+                </div>
+            </section>
+
+        </div>
+    </div>
+}
+
+
+

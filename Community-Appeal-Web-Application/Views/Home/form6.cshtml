@@ -1,0 +1,135 @@
+﻿
+@{
+                /**/
+
+                if (Session["Admin"] != null)
+                {
+                    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+                }
+}
+
+@using Community_Appeal_Web_Application.Models
+
+@model Basvuru
+
+@{
+    if (Model != null)
+    {
+        <div class="row">
+            <div class="col-lg-12">
+                <section class="panel">
+                    <header class="panel-heading">
+                        Ek 7 - Genel kurul Tutanağı 
+                    </header>
+                    <div class="panel-body">
+
+                        <form role="form" method="post" action="/Home/form6">
+                            @*<div class="form-group">
+            <label>Danışman Seçiniz</label>
+            <select class="form-control" id="list" name="ID">
+                <option>Danışman Seçiniz...</option>
+                @foreach (var item in Model.Danisman.ToList())
+                {
+                    <option value="@item.ID">@item.adi<span> </span>@item.soyadi</option>
+                }
+            </select>
+        </div>*@
+                            <text>* Bu formdaki tüm veriler önceki formlarda girilmiştir. Bu Formu kontrol ettikten sonra Kaydet dedikten sonra 7.forma geçebilirsiniz.</text>
+                            @{
+                                if (Model.adimNo == 7)
+                                {
+                                    <a href="/Home/form7" style="float:right;margin-left:5px;" class="btn btn-primary">Form 7</a>
+                                }
+                            }
+                            <button type="submit" style="float:right;" class="btn btn-info">Kaydet</button>
+
+                        </form>
+                    </div>
+                </section>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <section class="panel">
+                    <header class="panel-heading">
+                        Ek 7 - Genel kurul Tutanağı
+                    </header>
+                    <section class="panel-body" style="padding: 40px">
+                        <div style="float: right;">
+                            <p style="text-indent: 35.4pt;"><span style="font-size: 12.0pt;font-family: 'Times New Roman', serif;">@DateTime.Now.ToShortDateString()</span></p>
+                        </div>
+                        <br /><br />
+                        <div style="float: left;">
+                            <p style=""><span style="font-size: 12.0pt;font-family: 'Times New Roman', serif;">KONU: Olağan Genel Kurul Toplantısı</span></p>
+                        </div>
+                        <br /><br /><br />
+                        <div style="text-align: center;">
+                            <p style="">
+                                <span style="font-size: 12.0pt; font-family: 'Times New Roman', serif;">
+                                    DÜZCE ÜNİVERSİTESİ<br />SAĞLIK KÜLTÜR VE SPOR DAİRE BAŞKANLIĞINA
+                                </span>
+                            </p>
+                        </div>
+                        <br /><br />
+                        <div style="">
+                            <p style="text-indent: 35.4pt;">
+                                <span style="font-size: 12.0pt; font-family: 'Times New Roman', serif;">
+                                    Düzce Üniversitesi <b>@Model.toplulukAdi</b> Topluluğu’nun olağan genel kurul toplantısı <b>@Model.toplantiTarihi.ToString().Substring(0, 10)</b> tarihinde <b>@Model.mekan</b> 'de saat <b>@Model.saat</b> ‘de gözetimim altında gerçekleştirilmiş olup, toplantı tutanakları ekte sunulmuştur.
+                                    <br /><br />
+                            <p style="text-indent: 35.4pt;font-size: 12.0pt; font-family: 'Times New Roman', serif;">Gereğini ve bilgilerinizi arz ederim.</p>
+                            </span></p>
+                        </div>
+                        <br /><br /><br /><br /><br />
+                        <div style="float: right; text-align: center;">
+                            <p style="">
+                                <span style="font-size: 12.0pt; font-family: 'Times New Roman', serif;">
+                                    Düzce Üniversitesi <b>@Model.toplulukAdi</b> Topluluğu Danışmanı / Topluluk Başkanı<br />
+
+                                    İmza<br /><br />
+                                    @*@if (ViewBag.dl1 != null)
+                                    {
+                                        <b>Ünvan</b><span> / </span><b>Ad<span> / </span>Soyad</b><br />
+                                        <b>@ViewBag.dl1.unvan</b><span> / </span><b>@ViewBag.dl1.adi<span> / </span>@ViewBag.dl1.soyadi</b><br />
+                                    }
+                                    else
+                                    {
+                                        <b>Ünvan</b><span> / </span><b>Ad<span> / </span>Soyad</b><br />
+                                    }*@
+
+                                </span>
+                            </p>
+                        </div>
+                        <br /><br /><br /><br /><br />
+                        <div style="float: left;">
+                            <p style="">
+                                <span style="font-size: 12.0pt; font-family: 'Times New Roman', serif;">
+                                    EK:<br />
+                                    Genel Kurul Tutanağı (EK-7)
+                                </span>
+                            </p>
+                        </div>
+
+
+
+
+
+                    </section>
+                </section>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-danger" role="alert">
+            <strong><p style="font-size:18px;"> İlk önce 5. formu doldurmanız gerekmektedir.</p></strong>
+        </div>
+    }
+}
+
+<script src="/Content/js/jquery.js"></script>
+<script src="/Content/js/jquery-1.8.3.min.js"></script>
+
+<script>
+
+</script>

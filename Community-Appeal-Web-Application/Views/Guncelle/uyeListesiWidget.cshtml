@@ -1,0 +1,40 @@
+﻿@using Community_Appeal_Web_Application.Models
+
+<table class="table" style="width: 70%; margin: auto; border: solid; border: solid; border-color:lightgrey;border-width: 2px">
+    <thead>
+    <tr>
+        <th>Sıra No</th>
+        <th>Üye Adı</th>
+        <th>Üye Soyadı</th>
+        <th>Sil</th>
+    </tr>
+    </thead>
+    <tbody class="kisi">
+    @{
+        int i = 0;
+        foreach (GYonetimKurulu item in ViewBag.yk1)
+        {
+            i++;
+
+            <tr>
+                <td>@i</td>
+                <td>@item.adi</td>
+                <td>@item.soyadi</td>
+                <td class="sil"><a href="/Guncelle/uyeListesiSil/@item.ID" class="btn btn-danger btn-xs itemDelete"><i class="icon-trash"> Sil</i></a></td>
+            </tr>  
+
+               
+        }
+        foreach (GDenetimKurulu item in ViewBag.dk)
+        {
+            i++;
+            <tr>
+                <td>@i</td>
+                <td>@item.adi</td>
+                <td>@item.soyadi</td>
+                <td class="sil"><a href="/Guncelle/dUyeListesiSil/@item.ID" class="btn btn-danger btn-xs itemDelete"><i class="icon-trash"> Sil</i></a></td>
+            </tr>
+        }
+    }
+    </tbody>
+</table>

@@ -1,0 +1,68 @@
+﻿@model Basvuru
+
+@{ 
+    Layout = null;
+}
+
+@using Community_Appeal_Web_Application.Models
+<style>
+    body {
+        margin: 50px;
+        text-align: justify;
+        text-rendering: geometricPrecision;
+    }
+</style>
+
+@{
+           YonetimKurulu baskan = (YonetimKurulu)ViewBag.baskan;
+}
+
+
+@{     
+     <div class="panel-body" style="padding: 40px">
+                    <div style="float: right; text-align: center;">
+                        <p><span style="font-size: 12.0pt; line-height: 115%; font-family: 'Times New Roman', 'serif';"></span></p>
+                        <p><span style="font-size: 12.0pt; line-height: 115%; font-family: 'Times New Roman', 'serif';"></span></p>
+                        <p><span style="font-size: 12.0pt; line-height: 115%; font-family: 'Times New Roman', 'serif';">Ek-3</span></p>
+                        <p><span style="font-size: 12.0pt; line-height: 115%; font-family: 'Times New Roman', 'serif';">@DateTime.Now.Date.ToShortDateString()</span></p>
+
+                    </div>
+                    <br /><br /><br /><br /><br /><br />
+
+                    <p style="text-align: center;"><span style="font-size: 12.0pt; font-family: 'Times New Roman', 'serif';">D&Uuml;ZCE &Uuml;NİVERSİTESİ</span></p>
+                    <p style="text-align: center;"><span style="font-size: 12.0pt; font-family: 'Times New Roman', 'serif';">SAĞLIK K&Uuml;LT&Uuml;R VE SPOR DAİRE BAŞKANLIĞINA</span></p>
+                    <p style="text-align: justify;"><span style="font-size: 12.0pt; line-height: 115%; font-family: 'Times New Roman', 'serif';">&nbsp;</span></p>
+
+                    <div class="panel-body" style="padding: 60px">
+                        <p style="text-align: justify; text-indent: 35.4pt;"><span style="font-size: 12.0pt; line-height: 115%; font-family: 'Times New Roman', 'serif';">&Uuml;niversitemiz b&uuml;nyesinde, D&uuml;zce &Uuml;niversitesi &Ouml;ğrenci Toplulukları Y&ouml;nergesi&rsquo;nin 9. Maddesine istinaden &ldquo;D&uuml;zce &Uuml;niversitesi &nbsp; <b> @Model.toplulukAdi </b> &nbsp;Topluluğu&rdquo;nun kurulabilmesi i&ccedil;in gerekli evraklar ekte sunulmuştur. </span></p>
+                        <br />
+                        <p style="text-align: justify; text-indent: 35.4pt;"><span style="font-size: 12.0pt; line-height: 115%; font-family: 'Times New Roman', 'serif';">Gereğini bilgilerinize arz ederim.</span></p>
+                    </div>
+
+                    <p style="text-align: justify; text-indent: 35.4pt;"><span style="font-size: 12.0pt; line-height: 115%; font-family: 'Times New Roman', 'serif';">&nbsp;</span></p>
+                    <p style="text-align: justify; text-indent: 35.4pt;">&nbsp;</p>
+                    <br /><br /><br />
+                    <div style="float: right; text-align: center;">
+                        <p style="margin-bottom: .0001pt; text-indent: 35.45pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Times New Roman', 'serif';">D&uuml;zce &Uuml;niversitesi &nbsp; <b>@Model.toplulukAdi </b> Topluluğu </span></p>
+                        <p style="margin-bottom: 6.0pt; text-indent: 35.45pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Times New Roman', 'serif';">Kurucu &Uuml;yeleri Adına</span></p>
+                        <p style="margin-bottom: 6.0pt; text-indent: 35.45pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Times New Roman', 'serif';">Y&ouml;nt.Kur.Bşk.</span></p>
+                        <p style="margin-bottom: 6.0pt; text-indent: 35.45pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Times New Roman', 'serif';">Adı Soyadı / İmza</span></p><br />
+                        <p style="margin-bottom: 6.0pt; text-indent: 35.45pt; line-height: normal;"><span style="font-size: 15.0pt; font-family: 'Times New Roman', 'serif';"></span><b>@baskan.adi @baskan.soyadi</b></p>
+                    </div>
+                    <p><strong><span style="font-size: 12.0pt; line-height: 115%; font-family: 'Times New Roman', 'serif';">&nbsp;</span></strong></p>
+                    <p>&nbsp;</p>
+                    <br /><br /><br /><br /><br /><br /><br /><br /><br />
+                    <p><strong><span style="font-size: 12.0pt; line-height: 115%; font-family: 'Times New Roman', 'serif';">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; EKLER:</span></strong></p>
+                    <ol>
+                        <li style="margin-left: 25.1pt; text-indent: -18.0pt;"><span style="font-size: 12.0pt; line-height: 115%; font-family: 'Times New Roman', 'serif';">&nbsp; &nbsp; ) Topluluk T&uuml;z&uuml;ğ&uuml; (Ek-1)</span></li>
+                        <li style="margin-left: 25.1pt; text-indent: -18.0pt;"><span style="font-size: 12.0pt; line-height: 115%; font-family: 'Times New Roman', 'serif';">&nbsp; &nbsp; ) Topluluk &Uuml;ye Listesi (Ek-2)</span></li>
+                        <li style="margin-left: 25.1pt; text-indent: -18.0pt;"><span style="font-size: 12.0pt; line-height: 115%; font-family: 'Times New Roman', 'serif';">&nbsp; &nbsp; ) Topluluk Faaliyet Planı (Ek-4)</span></li>
+                        <li style="text-indent: -18.0pt; line-height: normal; margin: 0cm 0cm 6.0pt 25.1pt;"><span style="font-size: 12.0pt; font-family: 'Times New Roman', 'serif';">&nbsp; &nbsp; ) Kurucu &Uuml;yelerin &Ouml;ğrenci Belgesi </span></li>
+                    </ol>
+                    <p style="margin-bottom: 6.0pt; line-height: normal;"><span style="font-size: 12.0pt; font-family: 'Times New Roman', 'serif';">&nbsp;</span></p>
+
+                </div>
+
+
+
+}

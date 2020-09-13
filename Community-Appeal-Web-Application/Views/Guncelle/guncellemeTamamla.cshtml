@@ -1,0 +1,52 @@
+﻿
+@{
+    ViewBag.Title = "guncellemeTamamla";
+    if (Session["Admin"] != null)
+    {
+        Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    }
+}
+
+@using Community_Appeal_Web_Application.Models
+
+
+@model Guncelle
+
+@if(Model.adimNo != 7)
+{
+    <div class="alert alert-danger" role="alert">
+        <strong><p style="font-size:18px;"> Başvuruyu tamamlayabilmeniz için tüm formları doldurmanız gerekmektedir.</p></strong>
+    </div>
+}
+else
+{
+    <div class="row">
+        <div class="col-lg-12">
+            <section class="panel">
+                <header class="panel-heading">
+                    Güncelleme Tamamla
+                </header>
+                <div class="panel-body">
+
+                    <p> * Doldurduğunuz Formları aşığıdaki bağlantılardan temin edebilirsiniz. Formların çıktısını ilgili birime teslim edeniz.</p>
+                    <br />
+                    <a href="/Print/GForm1" target="_blank" class="btn btn-primary">Form 1</a>
+
+                    <a href="/Print/GForm2" target="_blank" class="btn btn-primary">Form 2</a>
+
+                    <a href="/Print/GForm3" target="_blank" class="btn btn-primary">Form 3</a>
+
+                    <a href="/Print/GForm4" target="_blank" class="btn btn-primary">Form 4</a>
+
+                    <a href="/Print/GForm7" target="_blank" class="btn btn-primary">Form 5</a>
+
+                    <a href="/Print/GForm8" target="_blank" class="btn btn-primary">Form 5.1</a>
+
+                    <br />
+                </div>
+            </section>
+
+        </div>
+    </div>
+}
+

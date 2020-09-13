@@ -1,0 +1,80 @@
+﻿
+
+@using Community_Appeal_Web_Application.Models
+
+<table style="border-collapse: collapse; border: none;">
+    <tbody>
+        <tr style="height: 20.45pt;">
+            <td style="width: 40.85pt; border: solid windowtext 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt; height: 20.45pt;" width="54">
+                <p style="margin-bottom: .0001pt; text-align: center; line-height: normal; tab-stops: 133.5pt;"><span style="font-size: 12.0pt; font-family: 'Times New Roman', 'serif';">S. NO</span></p>
+            </td>
+            <td style="width: 127.6pt; border: solid windowtext 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 20.45pt;" width="170">
+                <p style="margin-bottom: .0001pt; text-align: center; line-height: normal; tab-stops: 133.5pt;"><span style="font-size: 12.0pt; font-family: 'Times New Roman', 'serif';">FAALİYET T&Uuml;R&Uuml;</span></p>
+            </td>
+            <td style="width: 297.65pt; border: solid windowtext 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 20.45pt;" width="397">
+                <p style="margin-bottom: .0001pt; text-align: center; line-height: normal; tab-stops: 133.5pt;"><span style="font-size: 12.0pt; font-family: 'Times New Roman', 'serif';">KONUSU/İ&Ccedil;ERİĞİ</span></p>
+            </td>
+            <td style="width: 106.3pt; border: solid windowtext 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 20.45pt;" width="142">
+                <p style="margin-bottom: .0001pt; text-align: center; line-height: normal; tab-stops: 133.5pt;"><span style="font-size: 12.0pt; font-family: 'Times New Roman', 'serif';">TARİHİ</span></p>
+            </td>
+            <td style="width: 120.5pt; border: solid windowtext 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 20.45pt;" width="161">
+                <p style="margin-bottom: .0001pt; text-align: center; line-height: normal; tab-stops: 133.5pt;"><span style="font-size: 12.0pt; font-family: 'Times New Roman', 'serif';">YERLEŞKESİ</span></p>
+            </td>
+            <td style="width: 120.5pt; border: solid windowtext 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 20.45pt;" width="161">
+                <p style="margin-bottom: .0001pt; text-align: center; line-height: normal; tab-stops: 133.5pt;"><span style="font-size: 12.0pt; font-family: 'Times New Roman', 'serif';">İŞLEMLER</span></p>
+            </td>
+        </tr>
+        @{
+            int counter = 1;
+            foreach (FaliyetPlani item in ViewBag.fp)
+            {
+
+                <tr id="@item.ID" style="height: 20.45pt;">
+                    <td style="width: 40.85pt; border: solid windowtext 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt; height: 20.45pt;" width="54">
+                        <p style="margin-bottom: .0001pt; text-align: center; line-height: normal; tab-stops: 133.5pt;"><span style="font-size: 12.0pt; font-family: 'Times New Roman', 'serif';"> @counter</span></p>
+                    </td>
+                    <td style="width: 127.6pt; border: solid windowtext 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 20.45pt;" width="170">
+                        <p style="margin-bottom: .0001pt; text-align: center; line-height: normal; tab-stops: 133.5pt;"><span style="font-size: 12.0pt; font-family: 'Times New Roman', 'serif';">@item.faliyetTürü</span></p>
+                    </td>
+                    <td style="width: 297.65pt; border: solid windowtext 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 20.45pt;" width="397">
+                        <p style="margin-bottom: .0001pt; text-align: center; line-height: normal; tab-stops: 133.5pt;"><span style="font-size: 12.0pt; font-family: 'Times New Roman', 'serif';">@item.faliyetAmaci</span></p>
+                    </td>
+                    <td style="width: 106.3pt; border: solid windowtext 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 20.45pt;" width="142">
+                        <p style="margin-bottom: .0001pt; text-align: center; line-height: normal; tab-stops: 133.5pt;"><span style="font-size: 12.0pt; font-family: 'Times New Roman', 'serif';">@item.tarih.Value.Year/@item.tarih.Value.Month/@item.tarih.Value.Day</span></p>
+                    </td>
+                    <td style="width: 120.5pt; border: solid windowtext 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 20.45pt;" width="161">
+                        <p style="margin-bottom: .0001pt; text-align: center; line-height: normal; tab-stops: 133.5pt;"><span style="font-size: 12.0pt; font-family: 'Times New Roman', 'serif';">@item.yerleske</span></p>
+                    </td>
+                    <td class="sil" style="width: 120.5pt; border: solid windowtext 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 20.45pt;" width="161">
+                        <p style="margin-bottom: .0001pt; text-align: center; line-height: normal; tab-stops: 133.5pt;"><span style="font-size: 12.0pt; font-family: 'Times New Roman', 'serif';"><a class="btn btn-danger btn-xs itemDelete" data-id="@item.ID"> <i class="icon-trash"> Sil</i></a></span></p>
+                    </td>
+                </tr>
+                counter = counter + 1;
+            }
+        }
+    </tbody>
+</table>
+
+
+<script src="/Content/js/jquery.js"></script>
+<script src="/Content/js/jquery-1.8.3.min.js"></script>
+<script>
+    $('.itemDelete').click(function () {
+        var id = $(this).attr("data-id");
+        $.ajax({
+            url: '/Home/faaliyetSil/' + id,
+            type: 'POST',
+            success: function (rs) {
+                if (rs === true) {
+                    $('#' + id).remove();
+                }
+                else {
+                    alert('Silme işlemi gerçekleşirken bir hata oluştu.');
+                }
+            },
+            error: function (rs) {
+                alert('Bir hata oluştu');
+            }
+        });
+    });
+</script>

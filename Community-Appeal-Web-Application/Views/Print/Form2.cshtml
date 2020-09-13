@@ -1,0 +1,126 @@
+﻿
+@{
+    Layout = null;
+}
+
+@using Community_Appeal_Web_Application.Models
+
+
+@{
+    CommunityContext db = new CommunityContext();
+    Kullanici k = (Kullanici)Session["Kullanici"];
+    Basvuru b = db.Basvuru.Where(x => x.kullanıcıID == k.ID).FirstOrDefault();
+}
+
+<style>
+    body {
+        margin: 50px;
+        text-align: justify;
+        text-rendering: geometricPrecision;
+    }
+</style>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Form2</title>
+</head>
+<body>
+    <div>
+        <div class="panel-body" id="content" style="font-family:'Times New Roman';">
+            <p>
+                <strong></strong>
+            </p>
+            <p align="center">
+                <strong>DÜZCE ÜNİVERSİTESİ @b.toplulukAdi.ToUpper() TOPLULUĞU</strong>
+            </p>
+            <p align="center">
+                <strong>@DateTime.Now.Year-@DateTime.Now.AddYears(+1).Year AKADEMİK YILI ÜYE LİSTESİ</strong>
+            </p>
+            <div class="append">
+                <br/><br /><br /><br />
+                <table border="1" cellspacing="0.3" cellpadding="0" width="100%">
+
+                    <tbody class="kisi" >
+                        <tr>
+                            <td width="54" valign="middle" align="center">
+                                <p align="center" >
+                                    <strong>S. No</strong>
+                                </p>
+                            </td>
+                            <td width="164">
+                                <p align="center">
+                                    <strong>Adı Soyadı</strong>
+                                </p>
+                            </td>
+                            <td width="158">
+                                <p align="center">
+                                    <strong>Fak/Yüksekokul/MYO</strong>
+                                </p>
+                            </td>
+                            <td width="117">
+                                <p align="center">
+                                    <strong>TC Kimlik No</strong>
+                                </p>
+                            </td>
+                            <td width="119" valign="middle">
+                                <p align="center">
+                                    <strong>Öğrenci No</strong>
+                                </p>
+                            </td>
+                            <td width="134" valign="top">
+                                <p align="center">
+                                    <strong>Cep Tel No</strong>
+                                </p>
+                            </td>
+                            <td width="143">
+                                <p align="center">
+                                    <strong>e-Posta</strong>
+                                </p>
+                            </td>
+                            <td width="99">
+                                <p align="center">
+                                    <strong>İmza</strong>
+                                </p>
+                            </td>
+                        </tr>
+                        @{
+                            int counter = 1;
+                            foreach (OgrenciListesi item in ViewBag.ol)
+                            {
+
+                                <tr id="@item.ID">
+                                    <td width="54" valign="middle" align="center">
+                                        <p>
+                                            @counter
+                                        </p>
+                                    </td>
+
+                                    <td width="164" valign="middle"  style="padding-left:5px;">@item.adi @item.soyadi</td>
+                                    <td width="158" valign="middle"  style="padding-left:5px;">@item.fak</td>
+                                    <td width="117" valign="middle"  style="padding-left:5px;">@item.tc</td>
+                                    <td width="119" valign="middle"  style="padding-left:5px;">@item.ogrNo</td>
+                                    <td width="134" valign="middle"  style="padding-left:5px;">@item.tel</td>
+                                    <td width="143" valign="middle"  style="padding-left:5px;">@item.mail</td>
+                                    <td width="99" valign="middle"  style="padding-left:5px;"></td>
+                                   
+                                </tr>
+                                counter = counter + 1;
+                            }
+                        }
+
+
+                    </tbody>
+                </table>
+            </div>
+
+            <br />
+            <p>
+                Not:En az 20(yirmi) üye ile topluluk kurulacaktır.
+            </p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,100 @@
+﻿
+@{
+    Layout = null;
+}
+
+@using Community_Appeal_Web_Application.Models
+
+@model Guncelle
+<style>
+    body {
+        margin: 50px;
+        text-align: justify;
+        text-rendering: geometricPrecision;
+    }
+</style>
+@{
+    int gunInt = 0;
+    gunInt = (int)Model.toplantiTarihi.Value.Day;
+    string ay = Model.toplantiTarihi.Value.Month.ToString();
+    string yil = Model.toplantiTarihi.Value.Year.ToString();
+    string gun;
+    if (gunInt <= 9)
+    {
+        gun = "0" + Model.toplantiTarihi.Value.Day.ToString();
+    }
+    else
+    {
+        gun = Model.toplantiTarihi.Value.Day.ToString();
+    }
+
+    string toplantiTarihi = yil + "-" + ay + "-" + gun;
+}
+
+<div class="panel-body" align="center" style="padding: 10px">
+    <p>&nbsp;</p>
+    <p style="text-align: center; tab-stops: 133.5pt;"><strong><span style="font-size: 12.0pt; line-height: 115%; font-family: 'Times New Roman', 'serif';">@DateTime.Now.Year-@DateTime.Now.AddYears(+1).Year AKADEMİK YILI FAALİYET PLANI</span></strong></p><br /><br /><br />
+    <p style="text-align: center; tab-stops: 133.5pt;"><span style="font-size: 12.0pt; line-height: 115%; font-family: 'Times New Roman', 'serif';">&nbsp;</span></p>
+    <p style="text-align: justify; text-indent: 35.45pt; tab-stops: 133.5pt;"><span style="font-size: 12.0pt; line-height: 115%; font-family: 'Times New Roman', 'serif';">D&uuml;zce &Uuml;niversitesi <b> @Model.toplulukAdi.ToUpper() </b> Topluluğu <b> @toplantiTarihi </b>tarihinde saat <b>@Model.saat</b> de <b>@Model.mekan</b> de <b>@Model.toplantiNo</b> .ıncı (birinci, ikinci, &uuml;&ccedil;&uuml;nc&uuml; vb.) olağan genel kurul toplantısında alınan karar doğrultusunda;<b> @DateTime.Now.Year-@DateTime.Now.AddYears(+1).Year </b>Akademik yılında ger&ccedil;ekleştirilmesi planlanan faaliyetler aşağıda sunulmuştur. </span></p>
+    <p style="text-indent: 35.45pt; tab-stops: 133.5pt;"><span style="font-size: 12.0pt; line-height: 115%; font-family: 'Times New Roman', 'serif';">&nbsp;</span></p>
+    <br /><br /><br /><br /><br /><br />
+    <table style="border-collapse: collapse; border: none;">
+        <tbody>
+            <tr style="height: 20.45pt;">
+                <td style="width: 40.85pt; border: solid windowtext 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt; height: 20.45pt;" width="54">
+                    <p style="margin-bottom: .0001pt; text-align: center; line-height: normal; tab-stops: 133.5pt;"><span style="font-size: 12.0pt; font-family: 'Times New Roman', 'serif';">S. NO</span></p>
+                </td>
+                <td style="width: 127.6pt; border: solid windowtext 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 20.45pt;" width="170">
+                    <p style="margin-bottom: .0001pt; text-align: center; line-height: normal; tab-stops: 133.5pt;"><span style="font-size: 12.0pt; font-family: 'Times New Roman', 'serif';">FAALİYET T&Uuml;R&Uuml;</span></p>
+                </td>
+                <td style="width: 297.65pt; border: solid windowtext 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 20.45pt;" width="397">
+                    <p style="margin-bottom: .0001pt; text-align: center; line-height: normal; tab-stops: 133.5pt;"><span style="font-size: 12.0pt; font-family: 'Times New Roman', 'serif';">KONUSU/İ&Ccedil;ERİĞİ</span></p>
+                </td>
+                <td style="width: 106.3pt; border: solid windowtext 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 20.45pt;" width="142">
+                    <p style="margin-bottom: .0001pt; text-align: center; line-height: normal; tab-stops: 133.5pt;"><span style="font-size: 12.0pt; font-family: 'Times New Roman', 'serif';">TARİHİ</span></p>
+                </td>
+                <td style="width: 120.5pt; border: solid windowtext 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 20.45pt;" width="161">
+                    <p style="margin-bottom: .0001pt; text-align: center; line-height: normal; tab-stops: 133.5pt;"><span style="font-size: 12.0pt; font-family: 'Times New Roman', 'serif';">YERLEŞKESİ</span></p>
+                </td>
+                <td style="width: 120.5pt; border: solid windowtext 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 20.45pt;" width="161">
+                    <p style="margin-bottom: .0001pt; text-align: center; line-height: normal; tab-stops: 133.5pt;"><span style="font-size: 12.0pt; font-family: 'Times New Roman', 'serif';">İŞLEMLER</span></p>
+                </td>
+            </tr>
+            @{
+                int counter = 1;
+                foreach (GFaliyetPlani item in ViewBag.fp)
+                {
+
+                    <tr id="@item.ID" style="height: 20.45pt;">
+                        <td style="width: 40.85pt; border: solid windowtext 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt; height: 20.45pt;" width="54">
+                            <p style="margin-bottom: .0001pt; text-align: center; line-height: normal; tab-stops: 133.5pt;"><span style="font-size: 12.0pt; font-family: 'Times New Roman', 'serif';"> @counter</span></p>
+                        </td>
+                        <td style="width: 127.6pt; border: solid windowtext 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 20.45pt;" width="170">
+                            <p style="margin-bottom: .0001pt; text-align: center; line-height: normal; tab-stops: 133.5pt;"><span style="font-size: 12.0pt; font-family: 'Times New Roman', 'serif';">@item.faliyetTürü</span></p>
+                        </td>
+                        <td style="width: 297.65pt; border: solid windowtext 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 20.45pt;" width="397">
+                            <p style="margin-bottom: .0001pt; text-align: center; line-height: normal; tab-stops: 133.5pt;"><span style="font-size: 12.0pt; font-family: 'Times New Roman', 'serif';">@item.faliyetAmaci</span></p>
+                        </td>
+                        <td style="width: 106.3pt; border: solid windowtext 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 20.45pt;" width="142">
+                            <p style="margin-bottom: .0001pt; text-align: center; line-height: normal; tab-stops: 133.5pt;"><span style="font-size: 12.0pt; font-family: 'Times New Roman', 'serif';">@item.tarih</span></p>
+                        </td>
+                        <td style="width: 120.5pt; border: solid windowtext 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 20.45pt;" width="161">
+                            <p style="margin-bottom: .0001pt; text-align: center; line-height: normal; tab-stops: 133.5pt;"><span style="font-size: 12.0pt; font-family: 'Times New Roman', 'serif';">@item.yerleske</span></p>
+                        </td>
+                        <td class="sil" style="width: 120.5pt; border: solid windowtext 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt; height: 20.45pt;" width="161">
+                            <p style="margin-bottom: .0001pt; text-align: center; line-height: normal; tab-stops: 133.5pt;"><span style="font-size: 12.0pt; font-family: 'Times New Roman', 'serif';"><a class="btn btn-danger btn-xs itemDelete" data-id="@item.ID"> <i class="icon-trash"> Sil</i></a></span></p>
+                        </td>
+                    </tr>
+                    counter = counter + 1;
+                }
+            }
+        </tbody>
+    </table>
+
+    <p style="tab-stops: 133.5pt;"><span style="font-size: 12.0pt; line-height: 115%; font-family: 'Times New Roman', 'serif';">&nbsp;</span></p>
+    <p style="tab-stops: 133.5pt;"><span style="font-size: 12.0pt; line-height: 115%; font-family: 'Times New Roman', 'serif';">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Topluluk Başkanı&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Topluluk Danışmanı</span></p>
+    <p style="tab-stops: 133.5pt;"><span style="font-size: 12.0pt; line-height: 115%; font-family: 'Times New Roman', 'serif';">&nbsp;&nbsp;&nbsp;Ad-Soyad-İmza&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Ad-Soyad-İmza</span></p>
+
+    <p style="tab-stops: 133.5pt;"><span style="font-size: 12.0pt; line-height: 115%; font-family: 'Times New Roman', 'serif';">@Model.baskanAdi @Model.baskanSoyadi &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; @Model.GDanisman.Where(x => x.aktif == true).FirstOrDefault().adi  @Model.GDanisman.Where(x => x.aktif == true).FirstOrDefault().soyadi </span></p>
+    <p>&nbsp;</p>
+</div>

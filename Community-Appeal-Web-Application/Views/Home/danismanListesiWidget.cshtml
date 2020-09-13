@@ -1,0 +1,52 @@
+﻿@using Community_Appeal_Web_Application.Models
+
+<table class="table" style="width: 70%; margin: auto; border: solid; border: solid; border-color:lightgrey;border-width: 2px">
+    <thead>
+    <tr>
+        <th>Sıra No</th>
+        <th>Danışman Ünvanı</th>
+        <th>Danışman Adı</th>
+        <th>Danışman Soyadı</th>
+        <th>Danışman Okulu</th>
+    </tr>
+    </thead>
+    <tbody class="kisi">
+    @{
+        int i = 0;
+        foreach (Danisman item in ViewBag.dl)
+        {
+            i++;
+            <tr id="@item.ID">
+                <td>@i</td>
+                <td>@item.unvan</td>
+                <td>@item.adi</td>
+                <td>@item.soyadi</td>
+                <td>@item.akademikBirim</td>
+            </tr>
+        }
+    }
+    </tbody>
+</table>
+
+<script>
+
+
+    $('.itemDelete').click(function () {
+        var id = $(this).attr("data-id");
+        $.ajax({
+            url: '/Home/danismanListesiSil/' + id,
+            type: 'POST',
+            success: function (rs) {
+                if (rs === 3) {
+                    $('#' + id).remove();
+                }
+                else {
+                    alert('Silme işlemi gerçekleşirken bir hata oluştu.');
+                }
+            },
+            error: function (rs) {
+                alert('Bir hata oluştu');
+            }
+        });
+    });
+</script>

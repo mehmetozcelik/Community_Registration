@@ -1,0 +1,77 @@
+﻿
+@{
+    Layout = null;
+}
+
+@using Community_Appeal_Web_Application.Models
+@model Basvuru
+<style>
+    body {
+        margin: 50px;
+        text-align: justify;
+        text-rendering: geometricPrecision;
+    }
+</style>
+<section class="panel-body" style="padding: 40px">
+    <div style="float: right;">
+        <p style="text-indent: 35.4pt;"><span style="font-size: 12.0pt;font-family: 'Times New Roman', serif;">@DateTime.Now.ToShortDateString()</span></p>
+    </div>
+    <br /><br />
+    <div style="float: left;">
+        <p style=""><span style="font-size: 12.0pt;font-family: 'Times New Roman', serif;">KONU: Olağan Genel Kurul Toplantısı</span></p>
+    </div>
+    <br /><br /><br />
+    <div style="text-align: center;">
+        <p style="">
+            <span style="font-size: 12.0pt; font-family: 'Times New Roman', serif;">
+                DÜZCE ÜNİVERSİTESİ<br />SAĞLIK KÜLTÜR VE SPOR DAİRE BAŞKANLIĞINA
+            </span>
+        </p>
+    </div>
+    <br /><br />
+    <div style="">
+        <p style="text-indent: 35.4pt;">
+            <span style="font-size: 12.0pt; font-family: 'Times New Roman', serif;">
+                Düzce Üniversitesi <b>@Model.toplulukAdi</b> Topluluğu’nun olağan genel kurul toplantısı <b>@Model.toplantiTarihi.ToString().Substring(0, 10)</b> tarihinde <b>@Model.mekan</b> 'de saat <b>@Model.saat</b> ‘de gözetimim altında gerçekleştirilmiş olup, toplantı tutanakları ekte sunulmuştur.
+                <br /><br />
+        <p style="text-indent: 35.4pt;font-size: 12.0pt; font-family: 'Times New Roman', serif;">Gereğini ve bilgilerinizi arz ederim.</p>
+        </span></p>
+    </div>
+    <br /><br /><br /><br /><br />
+    <div style="float: right; text-align: center;">
+        <p style="">
+            <span style="font-size: 12.0pt; font-family: 'Times New Roman', serif;">
+                Düzce Üniversitesi <b>@Model.toplulukAdi</b> Topluluğu Danışmanı<br />
+
+                İmza<br /><br />
+                @if (ViewBag.dl1 != null)
+                {
+                    <b>Ünvan</b><span> / </span><b>Ad<span> / </span>Soyad</b><br />
+                    <b>@ViewBag.dl1.unvan</b><span> / </span><b>@ViewBag.dl1.adi<span> / </span>@ViewBag.dl1.soyadi</b><br />
+                }
+                else
+                {
+                    <b>Ünvan</b><span> / </span><b>Ad<span> / </span>Soyad</b><br />
+                }
+
+            </span>
+        </p>
+    </div>
+    <br /><br /><br /><br /><br />
+    <div style="float: left;">
+        <p style="">
+            <span style="font-size: 12.0pt; font-family: 'Times New Roman', serif;">
+                EK:<br />
+                Genel Kurul Tutanağı (EK-7)
+            </span>
+        </p>
+    </div>
+
+
+
+
+
+</section>
+
+
+
