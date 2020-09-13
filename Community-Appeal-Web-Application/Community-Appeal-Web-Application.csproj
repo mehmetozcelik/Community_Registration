@@ -144,6 +144,15 @@
     <Content Include="Docs\DÜ Öğrenci Toplulukları Yönergesi ve Ekleri.rar" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="ProjectImages\AdminAdd.PNG" />
+    <Content Include="ProjectImages\AppealList.PNG" />
+    <Content Include="ProjectImages\AppealList2.PNG" />
+    <Content Include="ProjectImages\Dashboard.PNG" />
+    <Content Include="ProjectImages\ForgotPass.PNG" />
+    <Content Include="ProjectImages\FormPage.PNG" />
+    <Content Include="ProjectImages\Login%28Admin%29.PNG" />
+    <Content Include="ProjectImages\Login.PNG" />
+    <Content Include="ProjectImages\Register.PNG" />
     <Content Include="Rotativa\help-wkhtmltoimage.txt" />
     <Content Include="Rotativa\help-wkhtmltopdf.txt" />
     <Content Include="Rotativa\wkhtmltoimage.exe" />
